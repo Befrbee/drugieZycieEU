@@ -2,9 +2,9 @@ const settings = {
   "name": "drugiezycieeu",
   "state": {
     "frontity": {
-      "url": "https://test.frontity.org",
-      "title": "Test Frontity Blog",
-      "description": "WordPress installation for Frontity development"
+      "url": "https://serwer1305496.home.pl/autoinstalator/wordpress1",
+      "title": "Kampania drugie życie",
+      "description": ""
     }
   },
   "packages": [
@@ -49,7 +49,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "url": "https://test.frontity.org"
+          "url": "https://serwer1305496.home.pl/autoinstalator/wordpress1"
         }
       }
     },

@@ -2,11 +2,13 @@ import { connect, styled } from "frontity";
 import Link from "./link";
 import Nav from "./nav";
 import MobileMenu from "./menu";
+import Logo from "./logo"
 
 const Header = ({ state }) => {
   return (
     <>
       <Container>
+        <Logo/>
         <Nav />
         <MobileMenu />
       </Container>
@@ -17,14 +19,14 @@ const Header = ({ state }) => {
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Header);
 
+
+
 const Container = styled.div`
-  width: 848px;
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 24px;
+ width: 90%;
+  padding: 2rem 0;
   color: #fff;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 `;

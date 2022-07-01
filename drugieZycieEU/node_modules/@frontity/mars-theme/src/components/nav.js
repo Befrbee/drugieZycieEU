@@ -1,6 +1,7 @@
 import { connect, styled } from "frontity";
 import Link from "./link";
 
+
 /**
  * Navigation Component
  *
