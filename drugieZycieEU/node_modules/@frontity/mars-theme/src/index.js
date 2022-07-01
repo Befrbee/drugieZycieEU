@@ -1,3 +1,16 @@
+
+// Zakładki (miejsca na stronie)
+// Wyeksponowane logo i social media (FB, YT, IG)
+// Aktualności (newsy, sprawy organizacyjne)
+// Nasze sukcesy (najbardziej spektakularne akcje)
+// Poprzednie kampanie (Historia dla każdego województwa)
+// Drugie życie w mediach (publikacje medialne – osadzanie linków, które od strony użytkowników wyglądają jak artykuły/filmy)
+// Do pobrania (oświadczenie woli, plakat, może foldery z poprzednich lat?)
+// Kontakt (plus formularz)
+// Patroni (sekcja z logotypami)
+//
+// (plus RODO)
+
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";

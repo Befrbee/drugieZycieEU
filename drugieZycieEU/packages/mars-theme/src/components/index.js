@@ -15,12 +15,15 @@ import PageError from "./page-error";
  *
  * @returns The top-level react component representing the theme.
  */
+
+
 const Theme = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
 
   return (
     <>
+
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
@@ -40,6 +43,7 @@ const Theme = ({ state }) => {
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
       <Main>
+
         <Switch>
           <Loading when={data.isFetching} />
           <List when={data.isArchive} />
@@ -57,8 +61,16 @@ const globalStyles = css`
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-face: Arial, serif;
   }
+
+  :root {
+    --primary-color: #004d91;
+    --secondary-color: #d5083a;
+    --background-color: #f0e1f8;
+  }
+
   a,
   a:visited {
     color: inherit;
@@ -70,15 +82,12 @@ const HeadContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #1f38c5;
+  background-color: white;
 `;
 
 const Main = styled.div`
   display: flex;
   justify-content: center;
-  background-image: linear-gradient(
-    180deg,
-    rgba(66, 174, 228, 0.1),
-    rgba(66, 174, 228, 0)
+  background-color: var(--background-color);
   );
 `;

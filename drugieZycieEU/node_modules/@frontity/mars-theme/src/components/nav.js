@@ -45,10 +45,11 @@ const NavContainer = styled.nav`
 const NavItem = styled.div`
   padding: 0;
   margin: 0 16px;
-  color: #fff;
+  color: var(--primary-color);
   font-size: 0.9em;
   box-sizing: border-box;
   flex-shrink: 0;
+  font-weight: 700;
 
   & > a {
     display: inline-block;
@@ -56,6 +57,7 @@ const NavItem = styled.div`
     border-bottom: 2px solid;
     border-bottom-color: transparent;
     /* Use for semantic approach to style the current link */
+
     &[aria-current="page"] {
       border-bottom-color: #fff;
     }
