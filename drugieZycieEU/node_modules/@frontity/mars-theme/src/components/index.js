@@ -6,6 +6,7 @@ import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
+import SocialMedia from "./socialMedia/socialMedia";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -43,7 +44,7 @@ const Theme = ({ state }) => {
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
       <Main>
-
+        <SocialMedia/>
         <Switch>
           <Loading when={data.isFetching} />
           <List when={data.isArchive} />
