@@ -7,11 +7,9 @@ const Header = ({ state }) => {
   return (
     <>
       <Container>
-
-
+        <Nav />
         <MobileMenu />
       </Container>
-      <Nav />
     </>
   );
 };
@@ -27,7 +25,8 @@ const Container = styled.div`
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 const Title = styled.h2`
