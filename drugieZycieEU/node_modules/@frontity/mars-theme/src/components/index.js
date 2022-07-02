@@ -6,7 +6,8 @@ import Post from "./post";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
-import SocialMedia from "./socialMedia/socialMedia";
+import SocialMedia from "./socialMedia";
+import Banner from "./banner";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -26,7 +27,7 @@ const Theme = ({ state }) => {
     <>
 
       {/* Add some metatags to the <head> of the HTML. */}
-      <Title />
+      <Title/>
       <Head>
         <meta name="description" content={state.frontity.description} />
         <html lang="en" />
@@ -38,13 +39,16 @@ const Theme = ({ state }) => {
 
       {/* Add the header of the site. */}
       <HeadContainer>
-        <Header />
+        <Header/>
       </HeadContainer>
 
+       <Banner>
+           <SocialMedia/>
+       </Banner>
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
       <Main>
-        <SocialMedia/>
+
         <Switch>
           <Loading when={data.isFetching} />
           <List when={data.isArchive} />
@@ -59,11 +63,13 @@ const Theme = ({ state }) => {
 export default connect(Theme);
 
 const globalStyles = css`
+  @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
   body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-face: Arial, serif;
+   
   }
 
   :root {
