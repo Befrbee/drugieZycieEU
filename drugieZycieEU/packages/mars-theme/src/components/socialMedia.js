@@ -28,12 +28,14 @@ const SocialMedia = ({state}) => {
 
 const CountContainer = styled.div`
   & h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin: unset;
   }
     & h2{
-      font-size: 0.8rem;
+      font-size: 1rem;
+      font-weight: 600;
       margin: unset;
+      margin-left: 8px
     }
   
 `
@@ -42,19 +44,20 @@ const TextContainer = styled.div`
 
   & h1 {
     margin: unset;
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: 7.5rem;
+    font-weight: 600;
   }
 
   & span {
     margin-left: 5px;
+    font-size: 1.3rem;
   }
 
 `
 
 const Container = styled.div`
   background-color: white;
-  padding: 1rem 2rem
+  padding: 1rem 8% 2rem 2rem;
 `
 
 
@@ -63,6 +66,7 @@ const InnerContainer = styled.div`
   flex-direction: row;
   align-items: center;
   column-gap: 1rem;
+  margin-top: 1.5rem;
 
   & #divider {
     display: block;
@@ -71,7 +75,11 @@ const InnerContainer = styled.div`
     background-color: var(--primary-color);
     opacity: 0.8;
   }
-`;
+
+` ;
+
+
+
 
 
 export default connect(SocialMedia)
