@@ -8,7 +8,7 @@ import Title from "./title";
 import PageError from "./page-error";
 import SocialMedia from "./socialMedia";
 import Banner from "./banner";
-
+import { useEffect, useState } from 'react';
 /**
  * Theme is the root React component of our theme. The one we will export
  * in roots.
@@ -20,8 +20,23 @@ import Banner from "./banner";
 
 
 const Theme = ({ state }) => {
-  // Get information about the current URL.
-  const data = state.source.get(state.router.link);
+    const [data,setData] = useState();
+
+    useEffect(()=>{
+        //Load data for the mainpage
+        if(state.router.link ==="/"){
+            const newsData = state.source.get("/category/aktualnosci/");
+            setData(newsData);
+            return;
+        }
+
+        //else load data appropriate to the link
+        const data = state.source.get(state.router.link);
+        setData(data);
+    },[])
+
+
+
 
   return (
     <>
@@ -42,19 +57,27 @@ const Theme = ({ state }) => {
         <Header/>
       </HeadContainer>
 
-       <Banner>
-           <SocialMedia/>
-       </Banner>
+
       {/* Add the main section. It renders a different component depending
       on the type of URL we are in. */}
       <Main>
+          <Switch>
+              {/*mainpage*/}
+              <div when={state.router.link === "/"}>
+                  <Banner >
+                      <SocialMedia/>
+                  </Banner>
 
-        <Switch>
-          <Loading when={data.isFetching} />
-          <List when={data.isArchive} />
-          <Post when={data.isPostType} />
-          <PageError when={data.isError} />
-        </Switch>
+                  {/*News List*/}
+                  <List />
+
+                  {/*News*/}
+              </div>
+
+              {/*<Loading when={data.isFetching} />*/}
+              {/*<PageError when={data.isError}/>*/}
+          </Switch>
+
       </Main>
     </>
   );

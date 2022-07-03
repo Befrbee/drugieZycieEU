@@ -1,7 +1,25 @@
 import {connect, css, styled} from "frontity";
 import {SocialIcon} from "react-social-icons";
+import { useEffect, useState } from 'react';
 
 const SocialMedia = ({state}) => {
+    const [followerCount,setFollowerCount] = useState(0);
+
+    let fetchFollowerCount = async () =>{
+       let resp = await fetch('https://graph.facebook.com/kampaniaspolecznadrugiezycie?' +
+            'fields=fan_count' +
+            '&access_token=EAAIe6Nr8vTIBABS8zwvC6wVQ5ZBfCDbSvAqF9g45YsbWeexm0BYraZAfXpTbAeVqGdeNOlrZCHEWz7EKi4n3fKAgXB4yeZCMzl7gDbdLJAznCtdnOd8UcNUJEAKqiYO27Cs18kTLHKRIsCAs4Acu0VE1h0AH5oNZBV6uglq0GOEdwAW7Fo3sANR7yRGlfg2NihKFBQUyIHaFgvz2z6xmV0Csv7CZBC0CcZD').then(
+        )
+        let respBody = await resp.text();
+        let respObj = JSON.parse(respBody);
+       setFollowerCount(respObj.fan_count);
+    }
+
+    useEffect(()=>{
+        //Load follower count from facebook api
+       fetchFollowerCount().then();
+    },[])
+
     return (<Container>
             <TextContainer>
                 <h1>DRUGIE ŻYCIE</h1>
@@ -15,7 +33,7 @@ const SocialMedia = ({state}) => {
                 <SocialIcon url="https://www.instagram.com/"/>
                 <span id="divider"/>
                 <CountContainer>
-                        <h1>1'898</h1>
+                        <h1>{followerCount}</h1>
                         <h2> FOLLOWERS</h2>
                 </CountContainer>
             </InnerContainer>
